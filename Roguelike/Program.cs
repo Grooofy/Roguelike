@@ -2,6 +2,11 @@
 
 using Roguelike;
 
-Map map = new Map(20, 30);
-map.ShowMap();
+MapModel mapModel = new MapModel();
+MapView mapView = new MapView();
+MapController mapController = new MapController(mapModel, mapView, 100, 15);
+mapController.Create();
+
+
+
 
