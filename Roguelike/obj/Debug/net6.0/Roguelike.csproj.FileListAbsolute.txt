@@ -1,0 +1,15 @@
+U:\C#\StartGame\Roguelike\Roguelike\bin\Debug\net6.0\Roguelike.exe
+U:\C#\StartGame\Roguelike\Roguelike\bin\Debug\net6.0\Roguelike.deps.json
+U:\C#\StartGame\Roguelike\Roguelike\bin\Debug\net6.0\Roguelike.runtimeconfig.json
+U:\C#\StartGame\Roguelike\Roguelike\bin\Debug\net6.0\Roguelike.dll
+U:\C#\StartGame\Roguelike\Roguelike\bin\Debug\net6.0\Roguelike.pdb
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.csproj.AssemblyReference.cache
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.GeneratedMSBuildEditorConfig.editorconfig
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.AssemblyInfoInputs.cache
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.AssemblyInfo.cs
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.csproj.CoreCompileInputs.cache
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.dll
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\refint\Roguelike.dll
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.pdb
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\Roguelike.genruntimeconfig.cache
+U:\C#\StartGame\Roguelike\Roguelike\obj\Debug\net6.0\ref\Roguelike.dll
