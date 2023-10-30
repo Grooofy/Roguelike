@@ -2,7 +2,6 @@
 {
     public class MapModel
     {
-        
         private Random random = new Random();
         private readonly char _wallSymbol = (char)Symbol.Wall;
         private readonly char _cleanCell = (char)Symbol.CleanCell;
@@ -16,11 +15,14 @@
                 newMap[1, i] = GetRandomChar();
             }
 
+            newMap[1, 1] = _cleanCell;
+            newMap[width - 2, height - 3] = _cleanCell;
+            
             for (int i = 2; i < width - 1; i++)
             {
-                for (int j = 1; j < height -1; j++)
+                for (int j = 1; j < height - 1; j++)
                 {
-                    if (newMap[i-1,j+1] == _wallSymbol && newMap[i-1,j] == _cleanCell )
+                    if (newMap[i - 1, j + 1] == _wallSymbol && newMap[i - 1, j] == _cleanCell)
                     {
                         newMap[i, j] = _cleanCell;
                     }
@@ -28,10 +30,9 @@
                     {
                         newMap[i, j] = GetRandomChar();
                     }
-                }                
+                }
             }
-            newMap[1, 1] = _cleanCell;
-            newMap[width - 2, height - 3] = _cleanCell;
+
             return newMap;
         }
 
