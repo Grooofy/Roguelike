@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pb/jTi4EfQLfZjyoOOzE6oKvLDRCkA45asLSCzxftDN422amf/ZS8l9LYnivOfczmGwbzNzEegnqWFnhMghisA==",
+  "dgSpecHash": "++CTGpJ7xOO0Ly2OM+1BfniEbYqYevfyQh4Vfh22Jv5mmBIp50YQyZkQgS2wlsSmFdqld/apf6MoNDjSS79KSA==",
   "success": true,
-  "projectFilePath": "U:\\C#\\StartGame\\Roguelike\\Roguelike\\Roguelike.csproj",
+  "projectFilePath": "C:\\ProjectUnity\\Roguelike\\Roguelike\\Roguelike.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
