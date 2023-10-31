@@ -6,11 +6,11 @@
         private readonly MapView _view;
         private char[,] _mapSize;
 
-        public MapController(MapModel map, MapView view, int weight, int hight)
+        public MapController(MapModel map, MapView view, int weight, int height)
         {
             _map = map;
             _view = view;
-            _mapSize = new char[weight, hight];
+            _mapSize = new char[weight, height];
         }
 
         public void Create()
