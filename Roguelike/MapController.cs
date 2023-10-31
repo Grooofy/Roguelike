@@ -6,6 +6,9 @@
         private readonly MapView _view;
         private char[,] _mapSize;
 
+        public int SizeX => _mapSize.GetLength(1);
+        public int SizeY => _mapSize.GetLength(0);
+
         public MapController(MapModel map, MapView view, int weight, int height)
         {
             _map = map;
@@ -15,7 +18,7 @@
 
         public void Create()
         {
-            _mapSize = _map.Generate(_mapSize.GetLength(1), _mapSize.GetLength(0));
+            _mapSize = _map.Generate(SizeX, SizeY);
             _view.Show(_mapSize);
         }
     }

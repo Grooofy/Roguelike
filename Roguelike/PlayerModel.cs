@@ -6,14 +6,13 @@ namespace Roguelike
     {
         private int _health;
         private Vector2 _currentPosition;
-        private Vector2 _previousPosition;
         private readonly Vector2 _directionUp = new Vector2(0, -1);
         private readonly Vector2 _directionDown = new Vector2(0, 1);
         private readonly Vector2 _directionRight = new Vector2(1, 0);
         private readonly Vector2 _directionLeft = new Vector2(-1, 0);
         
+        public Vector2 PreviousPosition { get; private set; }
         public Action<Vector2> Moved;
-        public Action<Vector2> MoveEnded;
         public bool IsDie;
 
         public PlayerModel(int health, Vector2 startPosition)
@@ -37,17 +36,23 @@ namespace Roguelike
 
         public void TryMove(ConsoleKeyInfo keyKode, int width, int height)
         {
-            if (_currentPosition.X - _directionLeft.X < 0) return;
-            if (_currentPosition.Y - _directionLeft.Y < 0) return;
-            if (_currentPosition.X - _directionLeft.X > width) return;
-            if (_currentPosition.Y - _directionLeft.Y > height) return;
-            
-            Move(keyKode);
-           
+            if (_currentPosition.X + _directionLeft.X < 0) 
+                SetNewPosition(_currentPosition);
+            if (_currentPosition.Y - _directionUp.Y < 0)
+                SetNewPosition(_currentPosition);
+            if (_currentPosition.X + _directionRight.X > width) 
+                SetNewPosition(_currentPosition);
+            if (_currentPosition.Y + _directionDown.Y > height) 
+                SetNewPosition(_currentPosition);
+            else
+            {
+                Move(keyKode);
+            }
         }
 
         private void Move(ConsoleKeyInfo keyKode)
         {
+            PreviousPosition = _currentPosition;
             switch (keyKode.Key)
             {
                 case ConsoleKey.UpArrow:
@@ -67,8 +72,6 @@ namespace Roguelike
 
         private void SetNewPosition(Vector2 direction)
         {
-            _previousPosition = _currentPosition;
-            MoveEnded?.Invoke(_previousPosition);
             _currentPosition += direction;
             Moved?.Invoke(_currentPosition);
         }
