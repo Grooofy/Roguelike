@@ -6,13 +6,14 @@ namespace Roguelike
     {
         private int _health;
         private Vector2 _currentPosition;
+        private Vector2 _previousPosition;
         private readonly Vector2 _directionUp = new Vector2(0, -1);
         private readonly Vector2 _directionDown = new Vector2(0, 1);
         private readonly Vector2 _directionRight = new Vector2(1, 0);
         private readonly Vector2 _directionLeft = new Vector2(-1, 0);
         
-        public Vector2 PreviousPosition { get; private set; }
         public Action<Vector2> Moved;
+        public Action<Vector2> MoveEnded;
         public bool IsDie;
 
         public PlayerModel(int health, Vector2 startPosition)
@@ -42,7 +43,7 @@ namespace Roguelike
             if (_currentPosition.Y - _directionLeft.Y > height) return;
             
             Move(keyKode);
-            PreviousPosition = _currentPosition;
+           
         }
 
         private void Move(ConsoleKeyInfo keyKode)
@@ -66,6 +67,8 @@ namespace Roguelike
 
         private void SetNewPosition(Vector2 direction)
         {
+            _previousPosition = _currentPosition;
+            MoveEnded?.Invoke(_previousPosition);
             _currentPosition += direction;
             Moved?.Invoke(_currentPosition);
         }

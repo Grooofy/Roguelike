@@ -10,17 +10,18 @@ public class PlayerView
     {
         _playerModel = playerModel;
         _playerModel.Moved += Show;
+        _playerModel.MoveEnded += CleanCell;
     }
    
     public void Show(Vector2 position)
     {
         WriteSymbol(position, Symbol.Player);
+        Console.SetCursorPosition((int)position.X, (int)position.Y);
     }
 
-    public void CleanCell(Vector2 position)
+    private void CleanCell(Vector2 position)
     {
-        WriteSymbol(_playerModel.PreviousPosition, Symbol.CleanCell);
-        Console.SetCursorPosition((int)position.X, (int)position.Y);
+        WriteSymbol(position, Symbol.CleanCell);
     }
 
     private void WriteSymbol(Vector2 cursorPosition, Symbol symbol)
