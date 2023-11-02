@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QIRJ01wY9R1T38U8yMZDfZpat5zBKz4kjni8GscgXaz+TJCo4couSY2hHqo9yBvtBSfYUL0+HdYaC+NeHxl2Ag==",
+  "dgSpecHash": "Pb/jTi4EfQLfZjyoOOzE6oKvLDRCkA45asLSCzxftDN422amf/ZS8l9LYnivOfczmGwbzNzEegnqWFnhMghisA==",
   "success": true,
-  "projectFilePath": "F:\\Repos\\Roguelike\\Roguelike\\Roguelike.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Teacher\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.20\\microsoft.netcore.app.ref.6.0.20.nupkg.sha512",
-    "C:\\Users\\Teacher\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.20\\microsoft.windowsdesktop.app.ref.6.0.20.nupkg.sha512",
-    "C:\\Users\\Teacher\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.20\\microsoft.aspnetcore.app.ref.6.0.20.nupkg.sha512",
-    "C:\\Users\\Teacher\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.20\\microsoft.netcore.app.host.win-x64.6.0.20.nupkg.sha512"
-  ],
+  "projectFilePath": "U:\\C#\\StartGame\\Roguelike\\Roguelike\\Roguelike.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

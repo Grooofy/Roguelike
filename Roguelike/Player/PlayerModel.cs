@@ -10,7 +10,7 @@ namespace Roguelike
         private readonly Vector2 _directionDown = new Vector2(0, 1);
         private readonly Vector2 _directionRight = new Vector2(1, 0);
         private readonly Vector2 _directionLeft = new Vector2(-1, 0);
-        
+
         public Vector2 PreviousPosition { get; private set; }
         public Action<Vector2> Moved;
         public bool IsDie;
@@ -24,9 +24,9 @@ namespace Roguelike
         public void TryTakeDamage(int damage)
         {
             if (damage < 0) return;
-            
+
             _health -= damage;
-            
+
             if (_health <= 0)
             {
                 _health = 0;
@@ -36,18 +36,7 @@ namespace Roguelike
 
         public void TryMove(ConsoleKeyInfo keyKode, int width, int height)
         {
-            if (_currentPosition.X + _directionLeft.X < 0) 
-                SetNewPosition(_currentPosition);
-            if (_currentPosition.Y - _directionUp.Y < 0)
-                SetNewPosition(_currentPosition);
-            if (_currentPosition.X + _directionRight.X > width) 
-                SetNewPosition(_currentPosition);
-            if (_currentPosition.Y + _directionDown.Y > height) 
-                SetNewPosition(_currentPosition);
-            else
-            {
-                Move(keyKode);
-            }
+            Move(keyKode);
         }
 
         private void Move(ConsoleKeyInfo keyKode)
