@@ -1,15 +1,14 @@
 ﻿using System.Numerics;
+using Map;
+using Roguelike.Interfaces;
 
-namespace Roguelike
+namespace Player
 {
     public class PlayerModel
     {
         private int _health;
         private Vector2 _currentPosition;
-        private readonly Vector2 _directionUp = new Vector2(0, -1);
-        private readonly Vector2 _directionDown = new Vector2(0, 1);
-        private readonly Vector2 _directionRight = new Vector2(1, 0);
-        private readonly Vector2 _directionLeft = new Vector2(-1, 0);
+        private readonly Vector2 _startPosition;
 
         public Vector2 PreviousPosition { get; private set; }
         public Action<Vector2> Moved;
@@ -18,9 +17,16 @@ namespace Roguelike
         public PlayerModel(int health, Vector2 startPosition)
         {
             _health = health;
-            _currentPosition = startPosition;
+            _startPosition = startPosition;
+            RemovePlayerToStartPosition();
         }
 
+        public void RemovePlayerToStartPosition()
+        {
+            _currentPosition = _startPosition;
+            Moved?.Invoke(_currentPosition);
+        }
+        
         public void TryTakeDamage(int damage)
         {
             if (damage < 0) return;
@@ -34,35 +40,26 @@ namespace Roguelike
             }
         }
 
-        public void TryMove(ConsoleKeyInfo keyKode, int width, int height)
-        {
-            Move(keyKode);
-        }
-
-        private void Move(ConsoleKeyInfo keyKode)
+        public void Move(IInputSystem inputSystem, char[,] map)
         {
             PreviousPosition = _currentPosition;
-            switch (keyKode.Key)
-            {
-                case ConsoleKey.UpArrow:
-                    SetNewPosition(_directionUp);
-                    break;
-                case ConsoleKey.DownArrow:
-                    SetNewPosition(_directionDown);
-                    break;
-                case ConsoleKey.RightArrow:
-                    SetNewPosition(_directionRight);
-                    break;
-                case ConsoleKey.LeftArrow:
-                    SetNewPosition(_directionLeft);
-                    break;
-            }
+            LookForward(inputSystem.GetDirection(), map);
+            Moved?.Invoke(_currentPosition);
         }
 
+        private void LookForward(Vector2 direction, char[,] map)
+        {
+            var forward = _currentPosition + direction;
+
+            if (map[(int)forward.Y, (int)forward.X] == (char)Symbol.CleanCell)
+                SetNewPosition(direction);
+            else
+                _currentPosition = PreviousPosition;
+        }
+        
         private void SetNewPosition(Vector2 direction)
         {
             _currentPosition += direction;
-            Moved?.Invoke(_currentPosition);
         }
     }
 }

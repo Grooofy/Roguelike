@@ -1,13 +1,16 @@
 ﻿using System.Numerics;
+using Map;
+using Player.Interfaces;
 
-namespace Roguelike;
+namespace Player;
 
 public class PlayerController
 {
+    private KeyBoardInput _keyBoardInput = new KeyBoardInput();
     private MapController _mapController;
     private PlayerModel _playerModel;
     private PlayerView _playerView;
-    private Vector2 _startPosition = new Vector2(1, 1);
+    private Vector2 _startPosition = new Vector2(1, 0);
     
 
     public PlayerController(MapController mapController)
@@ -24,8 +27,7 @@ public class PlayerController
         
         while (_playerModel.IsDie == false)
         {
-            var key = Console.ReadKey();
-            _playerModel.TryMove(key, _mapController.SizeX,_mapController.SizeY); 
+            _playerModel.Move(_keyBoardInput, _mapController.MapSize); 
         }
     }
 }

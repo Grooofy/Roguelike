@@ -1,4 +1,4 @@
-﻿namespace Roguelike
+﻿namespace Map
 {
     public enum Symbol
     {

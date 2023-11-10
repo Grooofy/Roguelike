@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
+using Map;
 
-namespace Roguelike;
+namespace Player;
 
 public class PlayerView
 {
