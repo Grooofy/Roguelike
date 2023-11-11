@@ -4,6 +4,7 @@
     {
         Player = '@',
         Wall = '#',
+        PerimeterWall = '*',
         Enemy = '%',
         CleanCell = ' ', 
         

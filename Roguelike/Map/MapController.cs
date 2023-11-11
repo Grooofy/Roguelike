@@ -1,21 +1,28 @@
-﻿namespace Map
+﻿using System.Numerics;
+
+namespace Map
 {
     public class MapController
     {
-        private readonly MapModel _map;
+        private readonly MapModel _mapModel;
         private readonly MapView _view;
-        public readonly char[,] MapSize;
+        private readonly char[,] _map;
 
-        public MapController(MapModel map, MapView view, int weight, int height)
+        public MapController(MapModel mapModel, MapView view, int weight, int height)
         {
-            _map = map;
+            _mapModel = mapModel;
             _view = view;
-            MapSize = _map.Generate(height, weight);
+            _map = _mapModel.Generate(height, weight);
         }
+        
+        public char GetSymbolMap(Vector2 position)
+        {
+            return _map[(int)position.Y, (int)position.X];
+        } 
 
         public void Create()
         {
-            _view.Show(MapSize);
+            _view.Show(_map);
         }
     }
 }
