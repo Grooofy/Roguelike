@@ -26,7 +26,7 @@ namespace ParentObjects
             Moved?.Invoke(CurrentPosition, false);
         }
 
-        public void Move(IInputSystem inputSystem, MapController symbol)
+        public virtual void Move(IInputSystem inputSystem, MapController symbol)
         {
             PreviousPosition = CurrentPosition;
             LookForward(inputSystem.GetDirection(), symbol);
