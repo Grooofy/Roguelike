@@ -7,9 +7,9 @@ namespace ParentObjects
     public class GameObjectModel
     {
         private readonly Vector2 _startPosition;
-        protected int Health;
         protected Vector2 Direction;
-        public bool IsDie;
+        public bool IsDie { get; private set; }
+        public int Health { get; protected set; }
         public Vector2 CurrentPosition { get; protected set; }
         public Vector2 PreviousPosition { get; private set; }
         public Action<Vector2, bool> Moved;
@@ -20,7 +20,7 @@ namespace ParentObjects
             _startPosition = startPosition;
         }
 
-        public void RemoveToStartPosition()
+        public void Spawn()
         {
             CurrentPosition = _startPosition;
             Moved?.Invoke(CurrentPosition, false);

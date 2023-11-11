@@ -5,7 +5,9 @@
         Player = '@',
         Wall = '#',
         PerimeterWall = '*',
-        Enemy = '%',
+        WarriorEnemy = '%',
+        ArcherEnemy = '+',
+        Bullet = '*',
         CleanCell = ' ', 
         
     }

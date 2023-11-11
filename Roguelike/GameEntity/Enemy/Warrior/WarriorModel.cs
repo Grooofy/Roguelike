@@ -6,16 +6,16 @@ using Roguelike.Interfaces;
 
 namespace Enemy
 {
-    public class EnemyModel : GameObjectModel, IAttack
+    public class WarriorModel : GameObjectModel, IAttack
     {
         private int _damage = 1;
         private PlayerModel _playerModel;
         
 
-        public EnemyModel(Vector2 startPosition, PlayerModel playerModel) : base(startPosition)
+        public WarriorModel(Vector2 startPosition, PlayerModel playerModel) : base(startPosition)
         {
             _playerModel = playerModel;
-            RemoveToStartPosition();
+            Spawn();
         }
 
         public void Attack(GameObjectModel playerModel)

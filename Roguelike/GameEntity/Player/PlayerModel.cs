@@ -17,7 +17,7 @@ namespace Player
         {
             Health = health;
             _pickaxe = new Pickaxe(pickaxeAmount);
-            RemoveToStartPosition();
+            Spawn();
         }
 
         protected override void LookForward(Vector2 direction, MapController map)
@@ -27,6 +27,7 @@ namespace Player
             if (map.GetSymbolMap(Direction) == (char)Symbol.Wall && _pickaxe.HitAmount != 0)
             {
                 SetNewPosition(direction);
+                map.RemoveWall(Direction);
                 _pickaxe.RemovePickaxe();
             }
         }

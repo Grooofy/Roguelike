@@ -14,6 +14,11 @@ namespace Map
             _view = view;
             _map = _mapModel.Generate(height, weight);
         }
+
+        public void RemoveWall(Vector2 position)
+        {
+            _map[(int)position.Y, (int)position.X] = (char)Symbol.CleanCell;
+        }
         
         public char GetSymbolMap(Vector2 position)
         {

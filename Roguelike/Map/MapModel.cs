@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Generator;
+﻿using Generator;
 
 namespace Map
 {
@@ -19,13 +18,10 @@ namespace Map
             newMap[1, 1] = _cleanCell;
             newMap[width - 2, height - 3] = _cleanCell;
             return newMap;
-
         }
 
-        private void CreateExit(char[,] map)
+        private void CreateExit()
         {
-           
         }
-        
     }
 }
