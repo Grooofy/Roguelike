@@ -9,7 +9,6 @@
 
     <ItemGroup>
       <Folder Include="GameEntity\" />
-      <Folder Include="Game\" />
     </ItemGroup>
 
 </Project>

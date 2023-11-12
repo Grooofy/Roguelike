@@ -7,7 +7,7 @@
         PerimeterWall = '*',
         WarriorEnemy = '%',
         ArcherEnemy = '+',
-        Bullet = '*',
+        Bullet = '-',
         CleanCell = ' ', 
         
     }

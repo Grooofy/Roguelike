@@ -4,16 +4,11 @@ using Roguelike.Interfaces;
 
 namespace Enemy
 {
-    public class ArcherView : GameObjectView, IAttack
+    public class ArcherView : GameObjectView
     {
-        
-        public ArcherView(GameObjectModel gameObjectModel, Symbol symbol) : base(gameObjectModel, symbol)
+        private static Symbol SYMBOL = Symbol.ArcherEnemy;
+        public ArcherView(GameObjectModel gameObjectModel) : base(gameObjectModel, SYMBOL)
         {
-        }
-
-        public void Attack(GameObjectModel playerModel)
-        {
-            
         }
     }
 }

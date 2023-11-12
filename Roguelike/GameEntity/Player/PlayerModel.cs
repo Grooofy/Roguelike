@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Interfaces;
 using Map;
 using ParentObjects;
 
@@ -7,17 +8,23 @@ namespace Player
     public class PlayerModel : GameObjectModel
     {
         private Pickaxe _pickaxe;
+
         public Action<int> PickaxeAmountChanged
         {
             get => _pickaxe.AmountChanged;
             set => _pickaxe.AmountChanged = value;
         }
 
-        public PlayerModel(int health, int pickaxeAmount, Vector2 startPosition) : base(startPosition)
+        public PlayerModel(int health, int pickaxeAmount, Vector2 startPosition, int speed) : base(startPosition, speed)
         {
             Health = health;
             _pickaxe = new Pickaxe(pickaxeAmount);
-            Spawn();
+        }
+
+        public override void Move(IInputSystem inputSystem, MapController symbol)
+        {
+            PreviousPosition = CurrentPosition;
+            LookForward(inputSystem.GetDirection(), symbol);
         }
 
         protected override void LookForward(Vector2 direction, MapController map)

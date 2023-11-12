@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Map;
+﻿using Map;
 using Interfaces;
 using ParentObjects;
 
@@ -13,6 +12,11 @@ namespace Player
             GameObjectModel gameObjectModel, GameObjectView gameObjectView) :
             base(inputSystem, mapController, gameObjectModel, gameObjectView)
         {
+        }
+
+        public override void Manage()
+        {
+            _gameObjectModel.Move(_inputSystem, _mapController);
         }
     }
 }

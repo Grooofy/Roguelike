@@ -7,6 +7,8 @@ namespace Generator
         private Vector2 _enterPosition = new Vector2(0, 1);
         private Vector2 _exitPosition = new Vector2(-1, -2);
 
+        public Vector2 ExitPosition { get; private set; }
+
         public char[,] Create(char wallSymbol, char cleanSymbol, int width, int height)
         {
             char[,] newMap = new char[width, height];
@@ -25,6 +27,7 @@ namespace Generator
 
             newMap[(int)_enterPosition.X, (int)_enterPosition.Y] = cleanSymbol;
             newMap[(int)(width + _exitPosition.X), (int)(height + _exitPosition.Y)] = cleanSymbol;
+            ExitPosition = new Vector2((height + _exitPosition.Y), (width + _exitPosition.X));
             return newMap;
         }
     }

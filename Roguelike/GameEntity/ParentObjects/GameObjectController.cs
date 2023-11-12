@@ -6,12 +6,13 @@ namespace ParentObjects
 {
     public class GameObjectController
     {
-        private IInputSystem _inputSystem;
-        private MapController _mapController;
-        private  GameObjectModel _gameObjectModel;
         private GameObjectView _gameObjectView;
         private Vector2 _startPosition;
 
+        protected IInputSystem _inputSystem;
+        protected MapController _mapController;
+        protected  GameObjectModel _gameObjectModel;
+        
         public GameObjectController(IInputSystem inputSystem, MapController mapController, GameObjectModel gameObjectModel, GameObjectView gameObjectView)
         {
             _inputSystem = inputSystem;
@@ -25,9 +26,9 @@ namespace ParentObjects
             _gameObjectView.Show(_gameObjectModel.CurrentPosition, false);
         }
 
-        public void Manage()
+        public virtual async void Manage()
         {
-            _gameObjectModel.Move(_inputSystem, _mapController);
+            await Task.Run(() => _gameObjectModel.Move(_inputSystem, _mapController));
         }
     }
 }

@@ -12,10 +12,9 @@ namespace Enemy
         private PlayerModel _playerModel;
         
 
-        public WarriorModel(Vector2 startPosition, PlayerModel playerModel) : base(startPosition)
+        public WarriorModel(Vector2 startPosition, PlayerModel playerModel, int speed) : base(startPosition, speed)
         {
             _playerModel = playerModel;
-            Spawn();
         }
 
         public void Attack(GameObjectModel playerModel)

@@ -5,7 +5,8 @@ namespace Enemy
 {
     public class WarriorView : GameObjectView
     {
-        public WarriorView(GameObjectModel enemyModel) : base(enemyModel, Symbol.WarriorEnemy)
+        private static Symbol SYMBOL = Symbol.WarriorEnemy;
+        public WarriorView(GameObjectModel enemyModel) : base(enemyModel, SYMBOL)
         {
         }
     }

@@ -24,7 +24,7 @@ namespace ParentObjects
                 CleanCell(position);
         }
 
-        private void CleanCell(Vector2 position)
+        protected void CleanCell(Vector2 position)
         {
             WriteSymbol(_gameObjectModel.PreviousPosition, Symbol.CleanCell);
             Console.SetCursorPosition((int)position.X, (int)position.Y);

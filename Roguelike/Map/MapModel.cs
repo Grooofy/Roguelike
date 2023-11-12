@@ -1,4 +1,5 @@
-﻿using Generator;
+﻿using System.Numerics;
+using Generator;
 
 namespace Map
 {
@@ -20,8 +21,9 @@ namespace Map
             return newMap;
         }
 
-        private void CreateExit()
+        public Vector2 GetExitPosition()
         {
+            return _generatorMapPerimeter.ExitPosition;
         }
     }
 }

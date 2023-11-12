@@ -8,19 +8,23 @@ namespace ParentObjects
     {
         private readonly Vector2 _startPosition;
         protected Vector2 Direction;
+        protected int _speed { get; private set; }
         public bool IsDie { get; private set; }
         public int Health { get; protected set; }
         public Vector2 CurrentPosition { get; protected set; }
-        public Vector2 PreviousPosition { get; private set; }
+        public Vector2 PreviousPosition { get; protected set; }
         public Action<Vector2, bool> Moved;
         public Action<int> TakingDamage;
 
-        public GameObjectModel(Vector2 startPosition)
+
+        public GameObjectModel(Vector2 startPosition, int speed)
         {
             _startPosition = startPosition;
+            _speed = speed;
+            Spawn();
         }
 
-        public void Spawn()
+        protected void Spawn()
         {
             CurrentPosition = _startPosition;
             Moved?.Invoke(CurrentPosition, false);
@@ -28,10 +32,14 @@ namespace ParentObjects
 
         public virtual void Move(IInputSystem inputSystem, MapController symbol)
         {
-            PreviousPosition = CurrentPosition;
-            LookForward(inputSystem.GetDirection(), symbol);
+            while (IsDie == false)
+            {
+                Thread.Sleep(_speed);
+                PreviousPosition = CurrentPosition;
+                LookForward(inputSystem.GetDirection(), symbol);
+            }
         }
-        
+
         public void TakeDamage(int damage)
         {
             if (Health <= 0)

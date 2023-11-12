@@ -5,8 +5,9 @@ namespace Bullet
 {
     public class BulletView : GameObjectView
     {
-        public BulletView(GameObjectModel gameObjectModel, Symbol symbol) : base(gameObjectModel, symbol)
+        public BulletView(BulletModel bulletModel, Symbol symbol) : base(bulletModel, symbol)
         {
+            bulletModel.HitedWall += CleanCell;
         }
     }
 }
